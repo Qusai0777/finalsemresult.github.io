@@ -288,6 +288,35 @@ input[type=checkbox] {
   box-sizing: border-box;
   padding: 0;
 }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust to your desired height */
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* Style the button */
+button {
+  padding: 10px 20px;
+  background-color: #6cb2eb;
+  color: #fff;
+  border: none;
+  border-radius: 15px; /* Added to round the corners */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #5097c9; /* Lighter color on hover */
+}
 
 textarea {
   overflow: auto;
