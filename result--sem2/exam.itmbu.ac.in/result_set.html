@@ -1288,13 +1288,27 @@
                     
 <div class="g-recaptcha" data-sitekey="6LeVxmEoAAAAAIrH4Y6rLA7tYsPXRyTwVJl9z1M-"></div>
 
-                    
-                          
-                        <div class="center">
+        <div id="recaptcha-error" style="display: none;">
+        <p>Please complete the reCAPTCHA.</p>
+    </div>
+             <script>
+    // Your reCAPTCHA callback function
+    function recaptchaCallback() {
+        var response = grecaptcha.getResponse();
+        if (response.length === 0) {
+            // reCAPTCHA not completed
+            document.getElementById('recaptcha-error').style.display = 'block';
+        } else {
+                <div class="center">
                                 <a href="ITMpdf.html" class="center-button">
                                   <button type="submit">Submit</button>
                                 </a>
                               </div>
+        }
+    }
+</script>
+                          
+                    
                     </div>
                 </div>
             </div>
