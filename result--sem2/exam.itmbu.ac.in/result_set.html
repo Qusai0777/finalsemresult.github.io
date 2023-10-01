@@ -1278,30 +1278,72 @@
                               <label for="enrollment_no" class="col-md-4 col-form-label text-md-right">Captcha</label>
                                <div class="col-md-6">
                                 <script src="../www.google.com/recaptcha/apid41d.js?" async defer></script>
-                                <div class="g-recaptcha" data-sitekey="6LeVxmEoAAAAAIrH4Y6rLA7tYsPXRyTwVJl9z1M-"></div>
+                              ------  <div class="g-recaptcha" data-sitekey=""></div>==================================6LeVxmEoAAAAAIrH4Y6rLA7tYsPXRyTwVJl9z1M-=============================================================================================
                                 <span class="text-danger"></span>
                               
                             </div>
                             </div>
 
-                    
+                    <!DOCTYPE html>
+<html>
+<head>
+    <title>Form with reCAPTCHA</title>
+    <!-- Include the reCAPTCHA API script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <h1>Submit Form with reCAPTCHA</h1>
+    <form id="myForm" action="process_form.php" method="POST">
+        <!-- Other form fields -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
 
-        <div id="recaptcha-error" style="display: none;">
-        <p>Please complete the reCAPTCHA.</p>
-    </div>
-             <script>
-    // Your reCAPTCHA callback function
-    function recaptchaCallback() {
-        var response = grecaptcha.getResponse();
-        if (response.length === 0) {
-            // reCAPTCHA not completed
-            document.getElementById('recaptcha-error').style.display = 'block';
-        } else {
-               
-        }
-    }
-</script>
-                           <div class="center">
+        <!-- reCAPTCHA widget -->
+        <div class="g-recaptcha" data-sitekey="6LeVxmEoAAAAAIrH4Y6rLA7tYsPXRyTwVJl9z1M-"></div><br>
+
+        <!-- Submit button -->
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+    <script>
+        // Add an event listener to the form for form submission
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Verify reCAPTCHA
+            grecaptcha.ready(function () {
+                grecaptcha.execute('YOUR_SITE_KEY_HERE', { action: 'submit_form' }).then(function (token) {
+                    // Send the token to your server for verification
+                    // You can use JavaScript fetch or another method to send the token to your server
+                    // Example:
+                    // fetch('verify_recaptcha.php', {
+                    //     method: 'POST',
+                    //     body: JSON.stringify({ token: token })
+                    // })
+                    // .then(response => response.json())
+                    // .then(data => {
+                    //     if (data.success) {
+                    //         // reCAPTCHA verification successful, submit the form
+                    //         document.getElementById('myForm').submit();
+                    //     } else {
+                    //         // reCAPTCHA verification failed, display an error message
+                    //         alert('reCAPTCHA verification failed. Please try again.');
+                    //     }
+                    // });
+
+                    // For demonstration purposes, let's assume verification is successful:
+                    // You should replace this with actual server-side verification as shown in the comments above.
+                    document.getElementById('myForm').submit();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+                      <div class="center">
                                 <a href="ITMpdf.html" class="center-button">
                                   <button type="submit">Submit</button>
                                 </a>
